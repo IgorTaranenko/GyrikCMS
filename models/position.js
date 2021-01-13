@@ -1,19 +1,23 @@
 const { Schema, model } = require('mongoose');
 
 const positionSchema = new Schema({
-    category: {
-        ref: 'Category',
-        type: Schema.Types.ObjectId,
-        required: true
-    },
     name: {
         type: String,
+        required: true
+    },
+    category: {
+        ref: 'categories',
+        type: Schema.Types.ObjectId,
         required: true
     },
     cost: {
         type: Number,
         required: true
+    },
+    user: {
+        ref: 'users',
+        type: Schema.Types.ObjectId
     }
 });
 
-module.exports.model('Position', positionSchema);
+module.exports.model('positions', positionSchema);
