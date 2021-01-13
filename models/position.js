@@ -20,4 +20,4 @@ const positionSchema = new Schema({
     }
 });
 
-module.exports.model('positions', positionSchema);
+module.exports = model('positions', positionSchema)

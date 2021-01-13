@@ -20,9 +20,7 @@ module.exports.login = async (req, res) => {
                 token: `Bearer ${token}`
             });
         } else {
-            res.status(401).json({
-                message: "Неверный пароль! Попробуйте снова"
-            });
+            res.status(401).json(messageHandler("Неверный пароль! Попробуйте снова"));
         }
     } else {
         // Пользователя нет
@@ -50,7 +48,7 @@ module.exports.register = async (req, res) => {
         try {
             await user.save();
             res.status(201).json(messageHandler("Пользователь создан!"));
-        } catch {
+        } catch (e) {
             // Обработка ошибок
             errorHandler(res, e);
         }

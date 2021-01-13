@@ -24,6 +24,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(require('cors')());
 
 app.use('/api/auth', authRoutes);
-app.use('/api/categories', categoriesRoutes);
+app.use('/api', categoriesRoutes);
 
 module.exports = app;

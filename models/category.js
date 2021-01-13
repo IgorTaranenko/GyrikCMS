@@ -6,10 +6,9 @@ const categorySchema = new Schema({
         required: true
     },
     imgSrc: {
-        src: {
-            type: String
-        }
+        type: String,
+        default: ''
     }
 });
 
-module.exports.model('categories', categorySchema);
+module.exports = model('categories', categorySchema);

@@ -2,19 +2,19 @@ const Position = require('../models/position');
 const errorHandler = require('../utils/errorHandler');
 const messageHandler = require('../utils/messageHandler');
 
-module.exports.getByCategoryId = async (req, res) = {
+module.exports.getByCategoryId = async (req, res) => {
     try {
         const positions = await Position.find({
             category: req.params.categoryId,
             user: req.user.id
         });
         res.status(200).json(positions);
-    } catch (res, e) {
-        errorHandler(e);
+    } catch (e) {
+        errorHandler(res, e);
     }
 }
 
-module.exports.create = async (req, res) = {
+module.exports.create = async (req, res) => {
     try {
         const position = await new Position({
             name: req.body.name,
@@ -28,7 +28,7 @@ module.exports.create = async (req, res) = {
     }
 }
 
-module.exports.remove = async (req, res) = {
+module.exports.remove = async (req, res) => {
     try {
         await Position.remove({
             _id: req.params.id
@@ -39,7 +39,7 @@ module.exports.remove = async (req, res) = {
     }
 }
 
-module.exports.update = async (req, res) = {
+module.exports.update = async (req, res) => {
     try {
         const position = await Position.findOneAndUpdate({
             _id = req.params.id
