@@ -3,8 +3,10 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination(req, file, cb) {
-        cb(null, 'uploads/')
+        cb(null, "uploads/")
+        // test change
     },
+    // destination: 'uploads/',
     filename(req, file, cb) {
         const date = moment().format('DDMMYYYY-HHmmss_SSS')
         cb(null, `${date}-${file.originalname}`)

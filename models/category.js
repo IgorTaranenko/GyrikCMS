@@ -5,6 +5,10 @@ const categorySchema = new Schema({
         type: String,
         required: true
     },
+    user: {
+        ref: 'users',
+        type: Schema.Types.ObjectId
+    },
     imgSrc: {
         type: String,
         default: ''
