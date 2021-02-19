@@ -26,5 +26,12 @@ app.use(require('cors')());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoriesRoutes);
+app.patch('/:id', (req, res) => {
+    res.status(200).json({
+        'req.params': req.params,
+        'req.query': req.query
+
+    });
+});
 
 module.exports = app;

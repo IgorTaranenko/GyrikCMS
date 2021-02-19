@@ -14,6 +14,10 @@ const positionSchema = new Schema({
         type: Number,
         required: true
     },
+    units: {
+        type: String,
+        required: true
+    },
     user: {
         ref: 'users',
         type: Schema.Types.ObjectId
